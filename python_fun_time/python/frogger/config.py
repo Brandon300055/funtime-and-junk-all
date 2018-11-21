@@ -1,0 +1,17 @@
+#config file
+
+ROWS = 11
+COLS = 7
+
+FROG_SIZE = 10
+PADDING = 15
+
+HG = FROG_SIZE
+V
+
+TITLE = "Frogger"
+SCREEN_WIDTH = COLS *
+SCREEN_HEIGHT = 600
+FPS = 10
+
+DEBUG = TRUE

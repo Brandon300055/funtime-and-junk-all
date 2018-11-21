@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue Calculator</title>
+<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
+</head>
+<body>
+  <div id="app">
+  <div class="calculator">
+    <div class="col-12 text-right">
+      <h1 class="mr-5">{{ calculation }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <button type="button" v-on:click="sin()" class="">sin</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="cos()" class="">cos</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="tan()" class="">tan</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('**')" class="side-button">^</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <button type="button" v-on:click="append('(')" class="">(</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append(')')" class="">)</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="" class="">+/-</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('//')" class="side-button">√</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <button type="button" v-on:click="clear()" class="">AC</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('%')" class="">←</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('%')" class="">%</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('/')" class="side-button">/</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <button type="button" v-on:click="append('7')" class="num-button">7</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('8')" class="num-button">8</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('9')" class="num-button">9</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('*')" class="side-button">*</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <button type="button" v-on:click="append('4')" class="num-button">4</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('5')" class="num-button">5</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('6')" class="num-button">6</button>
+    </div>
+    <div class="col-3">
+      <button type="button" v-on:click="append('-')" class="side-button">-</button>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <button type="button" v-on:click="append('1')" class="num-button">1</button>
+      </div>
+      <div class="col-3">
+          <button type="button" v-on:click="append('2')" class="num-button">2</button>
+        </div>
+      <div class="col-3">
+          <button type="button" v-on:click="append('3')" class="num-button">3</button>
+      </div>
+      <div class="col-3">
+          <button type="button" v-on:click="append('+')" class="side-button">+</button>
+      </div>
+    </div>
+      <div class="row">
+          <div class="col-6">
+            <button type="button" v-on:click="append('0')" class="num-button">0</button>
+          </div>
+          <div class="col-3">
+            <button type="button" v-on:click="append('.')" class="num-button">.</button>
+          </div>
+          <div class="col-3">
+            <button type="button" v-on:click="eval()" class="side-button">=</button>
+          </div>
+        </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="app.js"></script>
+</body>
+</html>

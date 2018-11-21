@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Funtime with Vue</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-one">
+<p>{{ title }}</p>
+<p>{{ greet }}</p>
+<greeting></greeting>
+<h1>Refs</h1>
+<input type="text" ref="input">
+<button v-on:click="readRefs">Read Refs</button>
+<p>Kittens are: {{ output }}
+</div>
+
+<div id="app-two">
+<p>{{ title }}</p>
+<p>{{ greet }}</p>
+<greeting></greeting>
+<button v-on:click="changeTitle">Change App One Title</button>
+</div>
+
+</body>
+
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><!--/ <- run first /-->
+  <script src="app.js"></script>
+</html>

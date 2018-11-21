@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+<!--<script src="oop.js"></script>-->
+<script type="text/javascript">
+var customer = {
+  name: "Brandon Stewart",
+  getName: function() {
+    return "My name is " + this.name;
+  },
+  address: {
+    city: "San Fransisco",
+    state: "CA",
+    street: "123 Kittens"
+  }
+};
+
+document.write(customer.getName() + "</br>");
+document.write(customer.name + " lives at " + customer.address.city + "</br>");
+
+//constructor functions same as a class
+function Person(name, city) {
+  this.name = name
+  this.city = city
+
+  this.info = function() {
+    return "My name is " + this.name + " and I live in " + this.city
+  }
+}
+
+var BobSmith = new Person("Bob Smith", "Kanses City");
+document.write(BobSmith.info() + " plus i am a Kitten and to top it off BobSmith is an instanceof person: "
+ + (BobSmith instanceof Person) + "</br>");
+
+//updating constructor things like this.something
+function changeName(person) {
+  person.name = "Brandon Stewart";
+}
+
+changeName(BobSmith);
+
+document.write("Bob becames " + BobSmith.name + " </br>")
+
+
+var person1 = new Person("Bob Smith", "Kanses City");
+var person2 = new Person("Bob Smith", "Kanses City");
+
+document.write("are the equal? " + (person1 == person2) + " </br>")
+
+
+//new section
+
+function getSum(num1, num2) {
+  return num1 + num2;
+}
+
+
+//mammals object
+function Mammal(name){
+  this.name = name;
+  this.getInto = function(){
+    return "The mammal name is " + this.name + "</br>"
+  }
+}
+
+Mammal.prototype.sound = "Grrrr";
+
+Mammal.prototype.makeSound = function(){
+  return this.name + " Says " + this.sound;
+}
+
+var grover = new Mammal("Kittens");
+
+document.write(grover.makeSound() + " </br>");
+
+//loop over propertys in grover
+for(var prop in grover){
+  document.write(prop + " : " + grover[prop] + "<br /> ")
+}
+
+document.write("name Property of grover : " + grover.hasOwnProperty("name") + "<br />")
+
+document.write("name Property of grover : " + grover.hasOwnProperty("sound") + "<br />")
+
+
+//check if something is in an array i think ??
+Array.prototype.inArray = function inArray(value){
+  for(i = 0; i < this.length; i++){
+    if (this[i] === value) {
+      return true;
+    }
+  }
+  return false;
+}
+
+var sampArray = [1,2,3,4,5];
+
+document.write("3 in array: " + sampArray.inArray(3) + "<br />");
+
+//secretNum is keepet inside the function
+function SecretCode(){
+    var secretNum = 78;
+
+    this.guessNum = function(num){
+      if(num > 78){
+        return "Go Lower";
+      } else if (num < 78) {
+        return "Go Higher";
+      } else {
+        return "Thats it!" + 78;
+      }
+    }
+}
+
+var secret = new SecretCode();
+
+document.write("Your Guess is: " + secret.guessNum(75) + "</br>")
+
+
+
+var address = {
+  street: "No street",
+  city:   "No city",
+  state:  "No State",
+
+  //get functions
+  get getAddress(){
+    return this.street + ", " + this.city + ", " + this.state;
+  },
+
+  //set functions
+  set setAddress(theAddress){
+    //toString() sets verable or object to a string same as str() in python
+    //split is similar as explode in php it adds , to every instance of its paramiter
+    var parts = theAddress.toString().split(", ");
+    //we are braking the set up and updating the this
+    this.street = parts[0] || "";
+    this.city = parts[1] || "";
+    this.state = parts[2] || "";
+  }
+}
+//no need to add the paramiters in () just set the method call = to something
+//which is the same as setting the paramiters
+address.setAddress = "123 Kitten St, San Fransisco, CA";
+
+document.write("Your Address is: " + address.getAddress + "</br>" )
+
+document.write("Your city is: " + address.city + "</br>" )
+
+
+//new sections on getters and setters with __ functions or magic methods
+function Coordiantes(){
+  this.latitude = 0
+  this.longitude =  0
+}
+//same this as above just with magic methods
+Object.__defineGetter__.call(Coordiantes.prototype, " getCoords", function(){
+  return "Lat : " + this.latitude + " Lag : " + this.longitude;
+});
+
+Object.__defineSetter__.call(Coordiantes.prototype, " setCoords", function(coords){
+  var parts = coords.toString().split(", ");
+  this.latitude = parts[0] || "";
+  this.longitude = parts[1] || "";
+});
+
+var testCoords = new Coordiantes();
+testCoords.setCoords = "40.71, 74.00";
+
+document.write("Your Coordiantes are: " + testCoords.getCoords + "</br>" )
+
+//new section 24:43
+function Point(){
+  this.xPos = 0;
+  this.xPos = 0;
+}
+
+//ever object in the document inhairits from Object
+//these are examples of a getter and setter  methods and they inhairit from Point
+Object.defineProperty(Point.prototype, "pointPos", {
+  //here is your getter
+  get: function(){
+    return "X : " + this.xPos + " Y : " + this.yPos;
+  },
+  //here is your setter
+  set: function(thePoint){
+    var parts = thePoint.toString().split(", ");
+    this.xPos = parts[0] || "";
+    this.yPos = parts[1] || "";
+  }
+});
+
+//new istance of object like new instance of class in python
+var aPoint = new Point();
+
+//call the setter
+aPoint.pointPos = "100, 200";
+//call the getter
+document.write("Point Postion : " + aPoint.pointPos + "</br>");
+//notice that you call the same thing in both the only difference is how they
+//are being called
+
+
+//new section on the lastest way of doing getters and setters
+var Circle = function(radius){ //<- this is like constructor in python
+  //radius already exist in js so using an underline is a way of differencating
+  //it from other radiui in js like in python with input -> inputs better use _input
+  this._radius = radius
+}
+//prototype gets all the this s from Circel
+Circle.prototype = {
+  //build set method
+  set radius(radius){ this._radius = radius; }, //<- just like in pythonh allso always end a method with a , when in an object wich are basicly classes
+  get radius(){ return this._radius; },
+  get area(){ return Math.PI * (this._radius ** 2) } //Math.pi is how you call pi in js
+};
+
+//creat a new instace of a circel object in js
+//just like in PHP
+var circ = new Circle(3);
+//call setter
+circ.radius = 10
+
+//call getter
+document.write("the circle radius is: " + circ.radius + "</br>")
+//call area
+document.write("the circles area is: " + circ.area + "</br>")
+
+
+//new section inharitace 30::
+function Animals(){
+  this.name = "Animals";
+  this.toString = function(){
+    return "we are " + this.name;
+  }
+}
+
+//kittens
+function Kittens() {
+  this.name = "Kittens";
+}
+
+//Humans
+function Humans() {
+  this.name = "Humans";
+}
+
+//here is where the inharitace kicks in 32:00
+Kittens.prototype = new Animals();
+Humans.prototype = new Animals();
+
+//constructors
+Kittens.prototype.constructor = Kittens;
+Humans.prototype.constructor = Humans;
+
+var Cats = new Kittens();
+
+document.write(Cats.toString() + "<br/>");
+
+//document.write("Cats is an instance of Animals " + Cats instanceof Animals + "<br/>");
+
+Animals.prototype.sound = "Sound!";
+Animals.prototype.getSound = function() {
+  return this.name + " Says " + this.sound;
+}
+
+Kittens.prototype.sound = "Meow";
+
+document.write(Cats.getSound() + "<br/>")
+
+//35:45
+
+
+</script>
+</body>
+</html>

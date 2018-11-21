@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<div id="root">
+  <ul>
+    <li v-for="name in nameArray" v-text>
+      {{ name }}
+    </li>
+  </ul>
+  <input v-model="newName" type="text" v-on:KeyUp="addName">
+  <button v-on:click="addName">Add Name</button>
+<div>
+</body>
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><!--/ <- run first /-->
+
+<script>
+
+
+var app = new Vue({
+
+  el: '#root',
+
+  data: {
+    newName: '',
+
+    nameArray: ['brandon', 'philo', 'tony']
+  },
+
+
+  methods: {
+    addName: function() {
+      this.nameArray.push(this.newName);
+
+      this.newName = '';
+    }
+  },
+
+})
+
+
+
+</script>
+
+</html>

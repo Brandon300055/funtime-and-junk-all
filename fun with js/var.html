@@ -1,0 +1,383 @@
+<title>Fun with variabels</title>
+<h3 id="vara"></h3>
+<script>
+    var age = 21;
+    var name = "brandon";
+    var pi = 3.1415926535;
+    var piAge = (pi * age);
+    document.getElementById("vara").innerHTML = "pi * age = " + (pi * age).toFixed(3);
+
+    document.write(piAge+=1, "</br>");
+    document.write(piAge+=1, "</br>");
+    document.write(piAge+=1, "</br>");
+    document.write(piAge+=1, "</br>");
+    document.write(piAge+=1, "</br>");
+    document.write(piAge+=1, "</br>");
+    document.write(Math.log(10), "</br>")
+
+    document.write("</br>Get Random Number: ", Math.random()*10, "</br>");
+
+    document.write("Convert String into Number:", Number("531.13"), "</br>");
+    document.write("Convert String into Int:", parseInt("1984"), "</br>");
+    document.write("Convert String into Float:" + parseFloat("3.141592") + "</br></br>");
+
+    var randomString = "A very " + "very " + "very " + "long string!";
+
+    document.write("<b>String Munipulation:</b></br> The String: ", randomString, "</br>")
+    document.write("Get Lenth of String randomString: " + randomString.length + "</br>");
+    document.write("\"long\" starts at the: " + randomString.indexOf("long") + " character </br>" );
+    document.write("slicing randomString to get long: " + randomString.slice(17, 21), "</br>");
+    document.write("slicing randomString from 17 to end: " + randomString.slice(17), "</br>");
+    document.write("slicing randomString combinedListwith a lenth: " + randomString.substr(17, 4), "</br>");
+    document.write("slicing and replacing with in randomString: " + randomString.replace("long", "short"), "</br>");
+    document.write("at index of 5: " + randomString.charAt(5) + "</br>" );
+
+
+    document.write("</br><b>The String Stlying:</b></br>");
+    var StringToStyle = "Brandon Is Niffty!";
+    document.write("toUpperCase: " + randomString.toUpperCase(), "</br>");
+    document.write("toLowerCase: " + randomString.toLowerCase(), "</br>");
+    document.write("big: " + randomString.big(), "</br>");
+    document.write("small: " + randomString.small(), "</br>");
+    document.write("bold: " + randomString.bold(), "</br>");
+
+    document.write("fontcolor: " + randomString.fontcolor("blue"), "</br>");
+    document.write("fontsize: " + randomString.fontsize("7em"), "</br>");
+    document.write("link: " + randomString.link("http://brandonsresume.ml/"), "</br>");
+    document.write("strike: " + randomString.strike(), "</br>");
+    document.write("sub: " + randomString.sub(), "</br>");
+
+    document.write("sup: " + randomString.sup(), "</br>");
+
+    document.write("</br><b>Relational Operator: == === != > < >= <= || </br>");
+    document.write("Logical Operator: &&  \\ \\ !</b></br>");
+    var age = 21;
+    if((age >= 18 ) && (age <= 40)) {
+      document.write("you are Young! </br>");
+    } else if ((age >= 41 ) && (age <= 100)) {
+      document.write("you are Old! Oh No! </br>");
+    } else {
+      document.write("Time to tour the solar system </br>");
+    }
+
+    document.write("true || false: ", true || false, "</br>");
+    document.write("false || trzue: ", false || true, "</br>");
+    document.write("!true: ", !true, "</br>");
+    document.write("\"5\" == 5: ", "5" == 5, "</br>");
+    document.write("\"5\" === 5: ", "5" === 5, "</br>");
+
+    document.write("</br><b>Switches:</b> </br>");
+
+    var age = 44;
+    switch (age) {
+      case 50:
+        document.write("Your age is ", age, " you old man!</br>");
+        break;
+      case 44:
+        document.write("Your age is 44 and ", age, " is a nice number</br>");
+        break;
+      default:
+        document.write( age + " is a nice age</br>");
+
+    }
+
+    document.write("</br><b>Ternary Operators:</b></br>");
+    var age = 7;
+    var canIVote = (age >= 18) ? true : false;
+    document.write("can you vote? ", canIVote , "</br>");
+    var age = 21;
+    var canIVoteStatement = (age >= 18) ? "Yes you can Vote" : "No you must be 18!";
+    document.write("Can you vote? ", canIVoteStatement, "</br>");
+
+    document.write("</br><b>While Loops:</b></br>");
+    document.write("while i is less then 10 i += 1</br>");
+    var i = 1;
+    while(i <= 10) {
+      document.write(i, " ");
+      i += 1;
+    }
+
+    //this is how you comment out!
+
+    //document.write("</br>do loops. A do loop keeps asking </br>");
+    //do{
+    //  var guess = prompt("Guess a number betten 1 - 10");
+    //}while(guess != 7)
+    //alert("The Gussed it");
+
+    document.write("</br></br><b>For loop:</b> </br>");
+    for(j = 0; j <= 20; j++){
+      //if (j === 11) {
+        //break before 11
+      //  break;
+      //}
+      document.write(((j % 2 ) == 1) ? j + " is an odd number <br>" : j + " is an even number <br>");
+      if(j === 4) {
+        continue;
+      }
+      if (j === 11) {
+        //break after 11
+        break;
+      }
+    }
+
+    document.write("</br><b>Key value paring in For loop:</b> </br>");
+    var customerList = {name: "Brandon", address: "123 W Main", age: 21}
+
+    for(cust in customerList){
+      var list = customerList[cust];
+      document.write(list)
+
+      //document.write(((name == "Brandon") ? "Welcome back Brandon" : "Your not Brandon! Go away");
+    }
+
+    document.write("</br></br><b>Lists:</b> </br>");
+    var brandon = ["Brandon", "Nifty", 21];
+    //over writing
+    brandon[1] = "Very Niffty";
+    document.write(brandon[0] + " is " + brandon[1] + " at " + brandon[2] + "</br>");
+
+
+    //splicing lists
+    //1 is the spot on the list
+    //1 is how far to move
+    brandon.splice(2,1, "22");
+      document.write(brandon[0] + " is " + brandon[1] + " at " + brandon[2] + "</br>");
+
+      //deleting index 2 with slicing
+       brandon.splice(2,1);
+      document.write(brandon[0] + " is " + brandon[1] + " at " + brandon[2] + "</br>");
+
+
+    document.write("glueing a list together: ", brandon.valueOf(), "<br>");
+
+    document.write("glue the list into 1 string with \",\" : ", brandon.join(", "), "<br>");
+
+    //deleting index 1 in brandon list
+    delete brandon[1];
+    document.write(brandon[0] + " is " + brandon[1] + " at " + brandon[2] + "</br>");
+
+
+/////////////////////////////
+    document.write("</br><b>Sorting lists:</b> </br>");
+    //sorting list
+    var PiList = [3, 1, 4, 1, 5, 9, 2, 6, 5, 4,];
+    //PiList Sorted smalled to largest
+    document.write(PiList.sort(function(x,y){ return x - y }) + "<br>")
+    //PiList sorted largest to smallest
+    document.write(PiList.sort(function(x,y){ return y - x }) + "<br>")
+    //combineding arrays or list together
+    var combinedList = PiList.concat(brandon);
+    //combing pilist and brandon lists
+    document.write(combinedList + "<br>");
+
+    //remove last item in a list with pop
+    combinedList.pop();
+    combinedList.pop();
+    document.write(combinedList + " <-- Items removed <br>");
+
+    //append or push to the end of a list
+    combinedList.push("This is PI");
+    document.write(combinedList + "<br>");
+
+    //remove from the front or start of the list with shift
+    combinedList.shift();
+
+    //add to the front or start of the list with unshift
+    combinedList.unshift("5523");
+    document.write(combinedList + "<br>");
+
+    //loop over finished lists
+    for(i = 0; i < combinedList.length; i++) {
+      document.write(combinedList[i], "<br> ");
+    }
+    /////////////////////////////
+     document.write("</br></br><b>Functions:</b> </br>");
+       function isItInTheList(list, value) {
+         for (i=0; i < list.length; i++){
+           if (list[i] == value) {
+             return true;
+           }
+         }
+         return false
+       }
+
+     document.write("function: isItInTheList, list: PiList, value: 3 result: " + isItInTheList(PiList, 3) +"</br>");
+     document.write("function: isItInTheList, list: PiList, value: 55 result: " + isItInTheList(PiList, 55) +"</br></br>");
+
+     //times 2 function:
+
+     function times2(num){
+       var var2 = 2; ///<-local varable
+
+       return num * var2
+     }
+
+     function times3(num){
+       var var3 = 3; ///<-local varable
+
+       return num * var3
+     }
+
+     document.write("times2 function, input: 2, output: " + times2(2) + "<br>");
+     document.write("functions as veriables inside of functions (see code)</br>");
+
+     function multi(func, num){
+       return func(num)
+     }
+
+     //you can have functions as inputs to functions
+     document.write("multi function, input: times2 function and 50, output: " + multi(times2,50) + "<br>");
+
+     //assigning functions to varables
+     var take3Of = function(num) {
+       return num * 3;
+     }
+     document.write("multi function, input: take3Of function and 10, output: " + multi(take3Of,10) + "<br>");
+
+     //resive unknown number of paramiters or inputs to a function
+     function addAll(){
+       var sum = 0;
+       //you use variable "arguments" to get the inputs
+       for(i = 0; i < arguments.length; i++){
+         sum += arguments[i];
+       }
+       return sum
+     }
+
+     document.write("addAll function, input: 1,2,3,4,5,6,7,8,9,10, output: " + addAll(1,2,3,4,5,6,7,8,9,10) + "<br>");
+
+     // this function will double everything in the list that it resives:
+     function times2List(list){
+       var newList = [];
+       for(i = 0; i < list.length; i++){
+         newList.push(list[i] * 2);
+       }
+       return newList;
+     }
+
+     document.write("times2List function, input: [1,2,3,4,5,6,7,8,9,10] output: " + times2List([1,2,3,4,5,6,7,8,9,10]).toString() + "<br>");
+
+     //recirsive functions:
+     // a recirsive function is a fuction that calls itself!!!
+
+     function factorial(num){
+       if(num <= 1){
+         return 1;
+       } else {
+         //this fuction is calling itself!
+         return num * factorial(num - 1);
+       }
+     }
+     //1st call: num = 4 * factorial(3) = 4 * 6 = 24
+     //2st call: num = 3 * factorial(3) = 3 * 2 = 6
+     //3st call: num = 2 * factorial(3) = 2 * 1 = 2
+
+     document.write("recirsive: factorial functions input: 4 output: " + factorial(4) + "<br>");
+
+
+
+     //////////////////////////////Event Handling//////////////////////////////
+      document.write("</br></br><b>Event Handling:</b> </br>");
+      //see all events at https://www.w3schools.com/jsref/dom_obj_event.asp/
+
+      //JavaScript:void(0) stops a link from reloading a page so that the js can run in onClick
+
+      //function for onclick
+      function alertFactorial(func, num){
+        return alert("the factorial of " + num + " is " + func(num));
+      }
+
+</script>
+Alart on click to say Hello:
+<a href"JavaScript:void(0)" onClick="alert('Hello')">Hello</a></br>
+Call the function factorial on click and will return the factorial of 50:
+<a href"JavaScript:void(0)" onClick="alertFactorial(factorial, 50)">Call Function</a></br>
+Call the function factorial "onmouseover" and style change for "onmouseout":
+<a href"JavaScript:void(0)" onmouseover="alertFactorial(factorial, 10)" onmouseout="this.style.color='blue'" >Hello</a></br>
+Double click this link to change color to PI:
+<a href"JavaScript: (0)" ondblclick="this.style.color='#31415924' ">Hello</a></br>
+On mouse down change to red on mouse up change to blue and on mouse over show "click me":
+<a href"JavaScript:void(0)" onmouseover="this.text='click me'" onmouseout="this.text='Brandon'" onmousedown="this.style.color='red' " onmouseup="this.style.color='blue' ">Hello</a></br>
+<br>
+<br>
+<b>Inputs Event Handling</b>
+<br>
+get the text from an input and alert it:
+<input type="text" id="randomInput" onChange="var brandonSaid=document.getElementById('randomInput').value; alert('Brandon said ' + brandonSaid)">
+<br><br><form action="#" id="sample">
+  <input id='charInput' type="text">
+  <input id='Keydata' type="text">
+
+  <input type="reset" value="reset">
+  <input type="submit" value="submit">
+
+</form>
+
+<image scr="ntt-logo.png" id="logo">
+
+  <button id="mouseInput" type="text" size="30">Get Logo</button><br><br>
+
+Mouse X: <input type="text" id="mouseX"><br>
+Mouse y: <input type="text" id="mouseY"><br>
+
+<script>
+
+function getChar(event){
+  if(event.which == null){
+    return String.fromCharCode(event.keyCode);
+  } else if (event.which !=0 && event.charCode != 0) {
+    return String.fromCharCode(event.which);
+  } else {
+    return null;
+  }
+}
+
+
+document.getElementById('charInput').onkeypress =
+
+</script>
+
+
+<!-- Load TensorFlow.js -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.9.0"> </script>
+
+<!-- Place your code in the script tag below. You can also use an external .js file -->
+<script>
+  // Notice there is no 'import' statement. 'tf' is available on the index-page
+  // because of the script tag above.
+
+  // Define a model for linear regression.
+  const model = tf.sequential();
+  model.add(tf.layers.dense({units: 1, inputShape: [1]}));
+
+  // Prepare the model for training: Specify the loss and the optimizer.
+  model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+
+  // Generate some synthetic data for training.
+  const xs = tf.tensor2d([1, 2, 3, 4], [4, 1]);
+  const ys = tf.tensor2d([1, 3, 5, 7], [4, 1]);
+
+  // Train the model using the data.
+  model.fit(xs, ys).then(() => {
+    // Use the model to do inference on a data point the model hasn't seen before:
+    // Open the browser devtools to see the output
+    model.predict(tf.tensor2d([5], [1, 1])).print();
+  });
+</script>
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
